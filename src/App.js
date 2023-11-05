@@ -18,22 +18,59 @@ const images = [
 ];
 
 function App() {
+  const [photos, setPhotos] = useState(images);
+  const [featuredPhoto, setFeaturedPhoto] = useState(images[0]); // Initialize with the first image as the featured photo
+
+  const selectPhoto = (id) => {
+    const updatedPhotos = photos.map((photo) =>
+      photo.id === id ? { ...photo, selected: !photo.selected } : photo
+    );
+    setPhotos(updatedPhotos);
+  };
+
+  const deleteSelectedPhotos = () => {
+    const updatedPhotos = photos.filter((photo) => !photo.selected);
+    setPhotos(updatedPhotos);
+  };
+
+  const reorderPhotos = (dragIndex, hoverIndex) => {
+    const draggedPhoto = photos[dragIndex];
+    const updatedPhotos = [...photos];
+    updatedPhotos.splice(dragIndex, 1);
+    updatedPhotos.splice(hoverIndex, 0, draggedPhoto);
+    setPhotos(updatedPhotos);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="container mt-4">
+      <h1 className="text-center">Photo Gallery</h1>
+          <div className="row">
+            {photos.map((photo, index) => (
+              <PhotoPosition
+                key={photo.id}
+                photo={photo}
+                index={index}
+                selectPhoto={selectPhoto}
+                reorderPhotos={reorderPhotos}
+              />
+            ))}
+            <div className="add-photo">
+              <button
+                className=""
+                onClick={() => console.log('Add Photo clicked')}
+              >
+                Add Photo +
+              </button>
+            </div>
+          </div>
+      <div className="text-center mt-3">
+        <button
+          className="btn btn-danger"
+          onClick={deleteSelectedPhotos}
         >
-          Learn React
-        </a>
-      </header>
+          Delete Selected Photos
+        </button>
+      </div>
     </div>
   );
 }
