@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import PhotoPosition from './PhotoPosition';
 
 const images = [
   { id: 1, src: 'image-1.webp', alt: 'Image 1' },
