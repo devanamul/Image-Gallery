@@ -1,20 +1,27 @@
 .photo {
   width: 15%;
   height: 15%;
-  border: 1px solid #ccc;
+  border: 1px solid #5856568b;
   margin: 10px;
-  position: relative;
+  position: static;
   cursor: pointer;
   border-radius: 5px;
 }
-.add-photo{
-  width: 20%;
-  height: 20%;
-  border: 1px solid #ccc;
+.add-photo {
+  width: 15%;
+  /* padding-bottom: 10%;  */
+  height: 150px;
+  border: 1px dashed #5856568b;
   margin: 10px;
-  position: relative;
+  position: static;
   cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .photo img {
   width: 100%;
   height: 100%;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import PhotoPosition from './PhotoPosition';
+import { ImageFill } from 'react-bootstrap-icons';
 
 const images = [
   { id: 1, src: 'image-1.webp', alt: 'Image 1' },
@@ -19,7 +20,7 @@ const images = [
 
 function App() {
   const [photos, setPhotos] = useState(images);
-  const [featuredPhoto, setFeaturedPhoto] = useState(images[0]); // Initialize with the first image as the featured photo
+  // const [featuredPhoto, setFeaturedPhoto] = useState(images[0]); // Initialize with the first image as the featured photo
 
   const selectPhoto = (id) => {
     const updatedPhotos = photos.map((photo) =>
@@ -55,12 +56,7 @@ function App() {
               />
             ))}
             <div className="add-photo">
-              <button
-                className=""
-                onClick={() => console.log('Add Photo clicked')}
-              >
-                Add Photo +
-              </button>
+            <ImageFill size={20} /> Add Photo
             </div>
           </div>
       <div className="text-center mt-3">
