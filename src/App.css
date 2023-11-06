@@ -13,7 +13,7 @@ body{
 }
 
 button{
-  margin: 10px;
+  margin: 2%;
 }
 
 
@@ -71,7 +71,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 5%;
 }
 
 
@@ -79,8 +79,8 @@ button{
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
   grid-auto-rows: 1fr; 
-  gap: 20px;
-  margin: 50px;
+  gap: 3%;
+  margin: 6%;
   object-fit: cover;
 }
 
