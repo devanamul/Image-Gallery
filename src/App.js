@@ -53,7 +53,7 @@ function App() {
           Delete Selected Photos
         </button>
       </div>
-          <div className="row">
+          <div className="grid">
             {photos.map((photo, index) => (
               <PhotoPosition
                 key={photo.id}
