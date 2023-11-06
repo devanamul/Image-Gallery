@@ -20,6 +20,7 @@ const images = [
 
 function App() {
   const [photos, setPhotos] = useState(images);
+  const selectedPhotos = photos.filter((photo) => photo.selected);
   
   const selectPhoto = (id) => {
     const updatedPhotos = photos.map((photo) =>
@@ -43,16 +44,28 @@ function App() {
 
   return (
     <div className="container mt-4 mx-auto rounded">
-
-      <h1 className="text-left">Photo Gallery</h1>
-      <div className="text-right mt-3">
-        <button
-          className="btn btn-danger"
-          onClick={deleteSelectedPhotos}
-        >
-          Delete Selected Photos
-        </button>
+      <div className='topBar'>
+        {selectedPhotos.length > 0 ? (
+          <div className="topBar">
+            <h4 className="text-left">
+                {selectedPhotos.length === 1
+              ? `${selectedPhotos.length} Photo Selected`
+              : `${selectedPhotos.length} Photos Selected`}
+            </h4>
+            <button
+              className="btn btn-danger"
+              onClick={deleteSelectedPhotos}
+            >
+              {selectedPhotos.length === 1 ? "Delete Selected Photo" : "Delete Selected Photos"}
+            </button>
+          </div>
+        ) : (
+          <h4 className="text-left">Gallery</h4>
+        )}
       </div>
+      <hr style={{ border: "1px solid #000", width : '100%'}} />
+
+
           <div className="grid">
             {photos.map((photo, index) => (
               <PhotoPosition
