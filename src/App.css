@@ -1,16 +1,22 @@
 .photo {
-  width: 15%;
-  height: 15%;
+  width: 18%;
+  height: 18%;
   border: 1px solid #5856568b;
   margin: 10px;
   position: static;
   cursor: pointer;
   border-radius: 5px;
+  background-color: white;
 }
+
+.photo:hover{ 
+  filter: brightness(70%);
+}
+
+
 .add-photo {
-  width: 15%;
-  /* padding-bottom: 10%;  */
-  height: 150px;
+  width: 18%;
+  height: 18%px;
   border: 1px dashed #5856568b;
   margin: 10px;
   position: static;
@@ -34,7 +40,7 @@
 }
 
 .photo.selected {
-  filter: brightness(70%);
+  filter: contrast(100%);
 }
 
 .overlay {
@@ -51,3 +57,26 @@
   display: block;
   cursor: pointer;
 }
+
+.photo.selected::before {
+  content: '\2713';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 20px; 
+  color: white; 
+  z-index: 1;
+}
+
+.container.mt-4.mx-auto.rounded{
+  background-color: white;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 
+.row{
+ 
+  padding: auto;
+} */

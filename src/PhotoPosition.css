@@ -1,9 +1,13 @@
 .photo.first-photo{
-    height: 32%;
-    width: 32%;
+    height: 38%;
+    width: 38%;
     border: 1px solid #5856568b;
     margin: 10px;
     position: static;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.photo img{
+    width: 100%;
 }

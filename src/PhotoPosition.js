@@ -27,6 +27,7 @@ const PhotoPosition = ({ photo, index, selectPhoto, reorderPhotos }) => {
         src={`/images/${photo.src}`}
         alt={`Photo ${photo.id}`}
         onClick={() => selectPhoto(photo.id)}
+        style={{ width: '100%', height: '100%' }}
       />
       <div className="overlay" onClick={() => selectPhoto(photo.id)}></div>
     </div>

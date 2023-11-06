@@ -20,8 +20,7 @@ const images = [
 
 function App() {
   const [photos, setPhotos] = useState(images);
-  // const [featuredPhoto, setFeaturedPhoto] = useState(images[0]); // Initialize with the first image as the featured photo
-
+  
   const selectPhoto = (id) => {
     const updatedPhotos = photos.map((photo) =>
       photo.id === id ? { ...photo, selected: !photo.selected } : photo
@@ -43,8 +42,17 @@ function App() {
   };
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center">Photo Gallery</h1>
+    <div className="container mt-4 mx-auto rounded">
+
+      <h1 className="text-left">Photo Gallery</h1>
+      <div className="text-right mt-3">
+        <button
+          className="btn btn-danger"
+          onClick={deleteSelectedPhotos}
+        >
+          Delete Selected Photos
+        </button>
+      </div>
           <div className="row">
             {photos.map((photo, index) => (
               <PhotoPosition
@@ -56,17 +64,10 @@ function App() {
               />
             ))}
             <div className="add-photo">
-            <ImageFill size={20} /> Add Photo
+            <ImageFill size={20} /> Add Images
             </div>
           </div>
-      <div className="text-center mt-3">
-        <button
-          className="btn btn-danger"
-          onClick={deleteSelectedPhotos}
-        >
-          Delete Selected Photos
-        </button>
-      </div>
+      
     </div>
   );
 }
